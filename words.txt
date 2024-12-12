@@ -1,0 +1,65 @@
+apple, Red or green fruit
+banana, Yellow curved fruit
+castle, Fortress with tall towers
+dragon, Mythical fire-breathing creature
+eagle, Large bird of prey
+forest, Dense area with many trees
+guitar, Musical instrument with strings
+hammer, Tool for hitting nails
+igloo, Snow house used by Inuits
+jacket, Warm outer clothing
+kitchen, Room for cooking food
+lighthouse, Tower with bright warning light
+monkey, Furry primate with long tail
+notebook, Book for writing notes
+ocean, Large body of salt water
+pizza, Popular circular Italian dish
+robot, Mechanical automated machine
+spider, Eight-legged insect-like creature
+tiger, Large striped wild cat
+umbrella, Rain protection device
+violin, String musical instrument
+whale, Large marine mammal
+yellow, Color of sunshine
+zebra, Black and white striped animal
+anchor, Heavy metal object to hold ships
+bubble, Round water or air sphere
+candle, Wax object that provides light
+dinner, Evening meal
+flower, Colorful plant with petals
+garden, Area with plants and flowers
+helmet, Protective head covering
+jungle, Dense tropical forest
+knight, Medieval warrior
+ladder, Climbing tool with rungs
+magnet, Object that attracts metal
+pencil, Writing instrument with graphite
+penguin, Black and white flightless bird
+rabbit, Small furry animal with long ears
+square, Four-sided shape
+treasure, Valuable collection of items
+viking, Ancient Norse warrior
+village, Small rural settlement
+window, Glass opening in a wall
+yoyo, Toy that moves up and down
+balloon, Inflatable rubber object
+camera, Device for taking pictures
+donkey, Farm animal that brays
+eel, Long snake-like fish
+frog, Small jumping amphibian
+globe, Spherical map of the world
+honey, Sweet sticky substance
+island, Land surrounded by water
+kangaroo, Jumping Australian marsupial
+lemon, Sour yellow citrus fruit
+mango, Sweet tropical fruit
+necklace, Jewelry worn around neck
+orange, Citrus fruit that is orange
+pepper, Spicy vegetable or seasoning
+river, Flowing body of water
+sunset, Time when sun goes down
+turtle, Slow-moving reptile with shell
+volcano, Mountain that erupts lava
+whisper, Soft quiet speaking
+yogurt, Soft dairy product
+marble, Small glass or stone ball
