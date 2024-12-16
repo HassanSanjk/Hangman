@@ -2,10 +2,14 @@
 
 #Importing modules
 import random
+from fileUtils import file_utils
 
 #Global variables
 assist = False
 words = {}
+leaderboard = {}
+WORDS_FILE = "words.txt"
+LEADERBOARDS_FILE = "Leaderboard.txt"
 
 #Asking user if they want a hint
 def show_hint():
@@ -23,9 +27,9 @@ def tip(assist,word):
         print("Hint:", words[word])
 
 #Getting data from txt file
-def get_data():
+def get_data(file_name):
     try:
-        file = open("words.txt", "r")
+        file = open(file_name, "r")
         for line in file:
             word,hint = line.strip().split(",",1)
             if word in words:
@@ -36,6 +40,12 @@ def get_data():
         print("Error: Data file not found.")
     except Exception as e:
         print(f"Error reading data file: {e}")
+
+def show_leaderboard():
+    print("Leaderboard:")
+    print("Name\tScore")
+    for name, score in leaderboard:
+        print(f"{name}\t{score}")
 
 #Main function
 def main():
@@ -122,6 +132,9 @@ def again():
 
 #Starting the program
 if __name__ == "__main__":
+    words = file_utils.read_words(WORDS_FILE)
+    leaderboard = file_utils.read_leaderboard(LEADERBOARDS_FILE)
+    show_leaderboard()
     get_data()
     main()
     again()
