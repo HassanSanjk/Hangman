@@ -1,6 +1,6 @@
 class file_utils:
     @staticmethod
-    def read_words(file_name = "words.txt"):
+    def read_words(file_name = "Words.txt"):
         words = {}
         try:
             with open(file_name, "r") as file:
@@ -16,7 +16,7 @@ class file_utils:
         return words
 
     @staticmethod
-    def read_leaderboard(file_name = "leaderboard.txt"):
+    def read_leaderboard(file_name = "Leaderboards.txt"):
         leaderboard = {}
         try:
             with open(file_name, "r") as file:
@@ -33,7 +33,7 @@ class file_utils:
         return leaderboard
 
     @staticmethod
-    def update_leaderboard(leaderboard,name,score, file_name = "leaderboard.txt"):
+    def update_leaderboard(leaderboard,name,score, file_name = "Leaderboards.txt"):
         if name not in leaderboard or score > leaderboard[name]:
             leaderboard[name] = score
             print(f"New higscore for {name}: {score}")

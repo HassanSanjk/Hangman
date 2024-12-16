@@ -3,13 +3,14 @@
 #Importing modules
 import random
 from fileUtils import file_utils
+import time
 
 #Global variables
 assist = False
 words = {}
 leaderboard = {}
-WORDS_FILE = "words.txt"
-LEADERBOARDS_FILE = "Leaderboard.txt"
+WORDS_FILE = "Words.txt"
+LEADERBOARDS_FILE = "Leaderboards.txt"
 
 #Asking user if they want a hint
 def show_hint():
@@ -26,38 +27,27 @@ def tip(assist,word):
     if assist:
         print("Hint:", words[word])
 
-#Getting data from txt file
-def get_data(file_name):
-    try:
-        file = open(file_name, "r")
-        for line in file:
-            word,hint = line.strip().split(",",1)
-            if word in words:
-                print(f"Duplicate word: {word}")
-            words[word] = hint
-        file.close()
-    except FileNotFoundError:
-        print("Error: Data file not found.")
-    except Exception as e:
-        print(f"Error reading data file: {e}")
-
 def show_leaderboard():
     print("Leaderboard:")
     print("Name\tScore")
-    for name, score in leaderboard:
+    for name, score in leaderboard.items():
         print(f"{name}\t{score}")
 
 #Main function
 def main():
+
     #Choosing a random word from dictionary
     word = random.choice(list(words.keys()))
 
     #Starting the game
     print("Welcome to Hangman!")
     print("****************************")
+    name = input("What's your name? ")
     top=middle=bottom=""
     wrong = 0
     solution= ["_"] * len(word)
+    start_time = time.time()
+    global assist
 
     #Main loop
     while True:
@@ -114,6 +104,18 @@ def main():
             print("\nThe word is in fact", word,"!!")
             print("you won!")
             print("****************************")
+            time_taken = time.time() - start_time
+            score = int(max(1,(6-wrong)*(10000 / (time_taken + 1))))
+            if assist:
+                score //= 2
+            print("*******************************")
+            print("Summary:")
+            print("You got ",wrong," wrong guesses")
+            print(f"your time is {time_taken:.2f} seconds")
+            print("your score is", score)
+            print("*******************************")
+            file_utils.update_leaderboard(leaderboard,name,score,LEADERBOARDS_FILE)
+            assist = False
             return
 
         #Checking if the user lost
@@ -121,6 +123,7 @@ def main():
             break
     print("\nyou lost!")
     print("the word was", word)
+    assist = False
     return
 
 #Asking user if they want to play again
@@ -134,7 +137,19 @@ def again():
 if __name__ == "__main__":
     words = file_utils.read_words(WORDS_FILE)
     leaderboard = file_utils.read_leaderboard(LEADERBOARDS_FILE)
-    show_leaderboard()
-    get_data()
-    main()
-    again()
+    if not words:
+        print("Words file are empty")
+        exit()
+    play = input("do you want to play hangman? (y/n)").lower()
+    if play != "y":
+        print("--------------------------------------------------------------")
+        lead = input("Do you want to see the leaderboard? (y/n) ").lower()
+        print("--------------------------------------------------------------")
+        if lead == "y":
+            show_leaderboard()
+        else:
+            print("have a nice day!")
+            exit()
+    else:
+        main()
+        again()
